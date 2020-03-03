@@ -2,6 +2,7 @@ import 'package:douban_app/common/dashline.dart';
 import 'package:douban_app/common/star.dart';
 import 'package:douban_app/models/MovieItem.dart';
 import 'package:flutter/material.dart';
+import './search.dart';
 
 class HomeCell extends StatelessWidget {
 
@@ -114,12 +115,14 @@ class HomeCell extends StatelessWidget {
           child: HYDashedLine(axis: Axis.vertical,count: 12,color: Colors.blueGrey,),
         ),
         Container(
+          color: Colors.red,
           padding: EdgeInsets.symmetric(vertical: 41,horizontal: 10),
           child: Column(
             children: <Widget>[
-              Icon(Icons.add_box,size: 40,color: Colors.red,),
+              // Icon(Icons.add_box,size: 40,color: Colors.red,),
+              ImgIconBtn(),
               SizedBox(height:5),
-              Text("想 看",style: TextStyle(color: Colors.red,fontSize: 14),)
+              Text("想看",style: TextStyle(color: Colors.red,fontSize: 14),)
             ],
           ),
         )
@@ -142,5 +145,25 @@ class HomeCell extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style: TextStyle(fontSize: 14),
     );
+  }
+}
+
+class ImgIconBtn extends StatefulWidget {
+  @override
+  _ImgIconBtnState createState() => _ImgIconBtnState();
+}
+
+class _ImgIconBtnState extends State<ImgIconBtn> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+            icon: Icon(Icons.add_box,size: 40,color: Colors.red,),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchView("123qwe"))
+              );
+            }
+          );
   }
 }
