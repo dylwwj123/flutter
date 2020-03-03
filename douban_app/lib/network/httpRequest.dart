@@ -2,12 +2,15 @@ import 'package:dio/dio.dart';
 import 'httpConfig.dart';
 
 class WSHttpRequest {
+
+  static BaseOptions base = BaseOptions(
+      baseUrl: BASE_URL,
+      connectTimeout: TIMEOUT
+  );
+
+  static final dio = Dio(base);
+
   static Future request(String url,{String method = 'get',Map<String,dynamic>params}) async {
-    BaseOptions base = BaseOptions(
-        baseUrl: BASE_URL,
-        connectTimeout: TIMEOUT
-    );
-    final dio = Dio(base);
     Options option = Options(method: method);
     try {
       final result = await dio.request(url,queryParameters: params,options: option);
@@ -16,4 +19,5 @@ class WSHttpRequest {
       throw e;
     }
   }
+  
 }

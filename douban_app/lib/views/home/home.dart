@@ -1,5 +1,7 @@
+import 'package:douban_app/models/MovieItem.dart';
 import 'package:douban_app/network/httpRequest.dart';
 import 'package:flutter/material.dart';
+import 'homeCell.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -20,19 +22,33 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
 
+  List<MovieItem> items = [];
+
   @override
   void initState() {
     super.initState();
-    WSHttpRequest.request("https://douban.uieee.com/v2/movie/top250?start=0&count=20").
+    WSHttpRequest.request("/movie/top250?start=0&count=20").
     then((res){
-      print(res);
+      final subjects = res.data['subjects'];
+      List<MovieItem> movies = [];
+      for (var sub in subjects) {
+        movies.add(MovieItem.fromMap(sub));
+      }
+      setState(() {
+        this.items = movies;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Center(
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (BuildContext contenx, int index) {
+          return HomeCell(this.items[index]);
+        }
+      ),
     );
   }
 }

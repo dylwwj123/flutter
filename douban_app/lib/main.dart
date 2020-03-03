@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         //去除全局点击水波纹
         splashColor: Colors.transparent
       ),
+      debugShowCheckedModeBanner: false,
       home: MystackPage()
     );
   }

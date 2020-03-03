@@ -1,3 +1,4 @@
+import 'package:douban_app/common/dashline.dart';
 import 'package:flutter/material.dart';
 
 class Mine extends StatelessWidget {
@@ -8,7 +9,7 @@ class Mine extends StatelessWidget {
         title: Text("我的"),
       ),
       body: Center(
-        child: Text("我的!!"),
+        child: HYDashedLine(axis: Axis.vertical,count: 20,),
       ),
     );
   }
