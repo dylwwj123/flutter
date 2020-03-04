@@ -26,7 +26,7 @@ class _ClickBtnState extends State<ClickBtn> {
           onPressed: (){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SearchView("123"))
+              MaterialPageRoute(builder: (context) => SearchView(title1: "search",))
             );
           }
         )

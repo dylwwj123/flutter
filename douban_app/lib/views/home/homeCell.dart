@@ -140,7 +140,7 @@ class HomeCell extends StatelessWidget {
     }
     
     return Text(
-      "$genres / $director / $castString"+"123123jkahdkjhkhekqjwheqwheiuqwheiuqwyeiuqwywieyqwieyqwoasdasdasdasdassaddasdasdasdasdasdasdasdasdasda",
+      "$genres / $director / $castString",
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(fontSize: 14),
@@ -161,7 +161,7 @@ class _ImgIconBtnState extends State<ImgIconBtn> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SearchView("123qwe"))
+                MaterialPageRoute(builder: (context) => SearchView())
               );
             }
           );
