@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:shop_app/config/servcie_method.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,28 +13,100 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  String resultStr = "正在加载中..";
+
   @override
   void initState() {
     super.initState();
-    getHttp();
   }
 
   @override
   Widget build(BuildContext context) {
+    // ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: false);
+    // height: ScreenUtil().setHeight(565),
     return Scaffold(
-      body: Center(
-        child: Text("首页1234"),
-      ),
+      body: FutureBuilder(
+        future: getHomeBanner(),
+        builder: (context,snapshot){
+          if(snapshot.hasData){
+            var data = json.decode(snapshot.data.toString());
+            List<Map> swiper = (data["data"] as List).cast();
+            return Column(
+              children: <Widget>[
+                SwiperDiy(swiperLists: swiper,),
+              ],
+            );
+          }else {
+            return Center(
+              child: Text("loading.."),
+            );
+          }
+        },
+      )
     );
   }
 }
 
-void getHttp() async {
-  try {
-    Response response;
-    response = await Dio().get("http://www.easy-mock.com/mock/5c60131a4bed3a6342711498/baixing/dabaojian?name=1");
-    return print(response);
-  } catch (e) {
-    print(e);
+class SwiperDiy extends StatelessWidget {
+
+  final List swiperLists;
+
+  SwiperDiy({this.swiperLists});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          //轮播图
+          Container(
+            height: 345,
+            child: Swiper(
+            itemCount: swiperLists.length,
+            itemBuilder: (BuildContext context, int index){
+              String aa = swiperLists[index]["img"];
+              return Image.network(aa,fit: BoxFit.fill,);
+            },
+            pagination: SwiperPagination(),
+            autoplay: true,
+            ),
+          ),
+          //标题
+          Positioned(
+            top: 50,
+            left: 20,
+            child: Text("财商首页",style: TextStyle(color: Colors.white,fontSize: 18),),
+          ),
+          //消息按钮
+          Positioned(
+            top: 50,
+            right: 15,
+            child: Icon(Icons.message,color: Colors.white,size: 25,),
+          ),
+          //搜索框
+          Positioned(
+            top: 95,
+            left: 20,
+            right: 15,
+            child: Container(
+              height: 30,
+              decoration: BoxDecoration(
+                color: Colors.white38,
+                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              ),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 5, 0),
+                    child: Icon(Icons.search,color: Colors.white,),
+                  ),
+                  Text("请输入搜索内容..",style: TextStyle(color: Colors.white,fontSize: 16),)
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
