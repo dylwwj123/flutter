@@ -9,6 +9,7 @@ import './6.listview案例/grid.dart';
 import './7.页面布局/exp.dart';
 import './7.页面布局/stack.dart';
 import './7.页面布局/wrap.dart';
+import './8.AppBar/customBar.dart';
 
 void main() {
   //列表案列
@@ -26,5 +27,7 @@ void main() {
   //页面布局
   // runApp(EXPDemo());
   // runApp(StackViewDemo());
-  runApp(WrapDemo());
+  // runApp(WrapDemo());
+  //appbar 自定义
+  runApp(AppBarDemo());
 }

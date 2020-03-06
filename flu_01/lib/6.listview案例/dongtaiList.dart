@@ -20,10 +20,15 @@ class DTListDemo extends StatelessWidget {
     return ListView.builder(
       itemCount: listData.length,
       itemBuilder: (context,index){
-        return ListTile(
+        return GestureDetector(
+          onTap: (){
+            print("123");
+          },
+          child: ListTile(
           title: Text(listData[index]["title"]),
           subtitle: Text(listData[index]["autor"]),
           leading: Image.network(listData[index]["imageUrl"]),
+          ),
         );
       },  
     );
