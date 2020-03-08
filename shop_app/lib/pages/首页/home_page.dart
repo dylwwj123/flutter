@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shop_app/config/servcie_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'wws_btn.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -79,7 +80,7 @@ class SwiperDiy extends StatelessWidget {
           ),
           //消息按钮
           Positioned(
-            top: 50,
+            top: 51,
             right: 15,
             child: Icon(Icons.message,color: Colors.white,size: 25,),
           ),
@@ -104,7 +105,89 @@ class SwiperDiy extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          //分类按钮
+          Positioned (
+            top: 145,
+            left: 0,
+            right: 0,
+            child: Container(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: IconTextButton.icon(
+                      icon: Icon(Icons.add_alarm,size: 30,),
+                      label: Text("首页"),
+                      color: Colors.transparent,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      iconTextAlignment: IconTextAlignment.iconTopTextBottom,
+                      onPressed: (){
+                        print("图下文上");
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconTextButton.icon(
+                      icon: Icon(Icons.add_alarm,size: 30,),
+                      label: Text("首页"),
+                      color: Colors.transparent,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      iconTextAlignment: IconTextAlignment.iconTopTextBottom,
+                      onPressed: (){
+                        print("图下文上");
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconTextButton.icon(
+                      icon: Icon(Icons.add_alarm,size: 30,),
+                      label: Text("首页"),
+                      color: Colors.transparent,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      iconTextAlignment: IconTextAlignment.iconTopTextBottom,
+                      onPressed: (){
+                        print("图下文上");
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconTextButton.icon(
+                      icon: Icon(Icons.add_alarm,size: 30,),
+                      label: Text("首页"),
+                      color: Colors.transparent,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      iconTextAlignment: IconTextAlignment.iconTopTextBottom,
+                      onPressed: (){
+                        print("图下文上");
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconTextButton.icon(
+                      icon: Icon(Icons.add_alarm,size: 30,),
+                      label: Text("首页"),
+                      color: Colors.transparent,
+                      textColor: Colors.white,
+                      elevation: 0.0,
+                      iconTextAlignment: IconTextAlignment.iconTopTextBottom,
+                      onPressed: (){
+                        print("图下文上");
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ),
         ],
       ),
     );
