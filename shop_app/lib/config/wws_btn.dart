@@ -486,7 +486,7 @@ class _IconTextButtonWithIcon extends IconTextButton with MaterialButtonWithIcon
 
              icon,
 
-             const SizedBox(height: 4.0),
+             const SizedBox(height: 7.0),
 
              label,
 

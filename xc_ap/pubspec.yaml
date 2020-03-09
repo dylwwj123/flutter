@@ -1,4 +1,4 @@
-name: shop_app
+name: xc_ap
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -23,10 +23,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  dio: ^3.0.9
+  http: ^0.12.0+4
   flutter_swiper: ^1.1.6
-  flutter_screenutil: ^1.0.2
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,19 +43,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-   - assets/images/财商课.png
-   - assets/images/发现-红.png
-   - assets/images/发现-灰.png
-   - assets/images/理财课.png
-   - assets/images/上新.png
-   - assets/images/我的-红.png
-   - assets/images/我的-灰.png
-   - assets/images/消息.png
-   - assets/images/学习-红.png
-   - assets/images/学习-灰.png
-   - assets/images/训练营.png
-   - assets/images/周边.png
+  # assets:
+  #  - images/a_dot_burr.jpeg
+  #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

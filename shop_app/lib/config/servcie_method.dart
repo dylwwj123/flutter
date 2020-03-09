@@ -11,6 +11,7 @@ Future getHomeBanner() async {
     dio.options.responseType = ResponseType.plain;
     response = await dio.post(homeBanner);
     if (response.statusCode == 200){
+      print("123");
       return response.data;
     }else {
       throw Exception("获取首页轮播图失败");

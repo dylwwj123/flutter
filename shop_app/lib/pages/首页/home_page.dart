@@ -5,14 +5,17 @@ import 'package:dio/dio.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shop_app/config/servcie_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'wws_btn.dart';
+import 'package:shop_app/config/wws_btn.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true;
 
   String resultStr = "正在加载中..";
 
@@ -46,6 +49,7 @@ class _HomePageState extends State<HomePage> {
       )
     );
   }
+
 }
 
 class SwiperDiy extends StatelessWidget {
@@ -76,13 +80,13 @@ class SwiperDiy extends StatelessWidget {
           Positioned(
             top: 50,
             left: 20,
-            child: Text("财商首页",style: TextStyle(color: Colors.white,fontSize: 18),),
+            child: Text("华金财商",style: TextStyle(color: Colors.white,fontSize: 18),),
           ),
           //消息按钮
           Positioned(
             top: 51,
             right: 15,
-            child: Icon(Icons.message,color: Colors.white,size: 25,),
+            child: Image.asset("assets/images/消息.png",width: 25,),
           ),
           //搜索框
           Positioned(
@@ -107,8 +111,18 @@ class SwiperDiy extends StatelessWidget {
             ),
           ),
           //分类按钮
-          Positioned (
-            top: 145,
+          CategoryBtn(),
+        ],
+      ),
+    );
+  }
+}
+
+class CategoryBtn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned (
+            top: 150,
             left: 0,
             right: 0,
             child: Container(
@@ -117,8 +131,8 @@ class SwiperDiy extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: IconTextButton.icon(
-                      icon: Icon(Icons.add_alarm,size: 30,),
-                      label: Text("首页"),
+                      icon: Image.asset("assets/images/上新.png",width: 35,),
+                      label: Text("上新"),
                       color: Colors.transparent,
                       textColor: Colors.white,
                       elevation: 0.0,
@@ -131,8 +145,8 @@ class SwiperDiy extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: IconTextButton.icon(
-                      icon: Icon(Icons.add_alarm,size: 30,),
-                      label: Text("首页"),
+                      icon: Image.asset("assets/images/财商课.png",width: 30,),
+                      label: Text("财商课"),
                       color: Colors.transparent,
                       textColor: Colors.white,
                       elevation: 0.0,
@@ -145,8 +159,8 @@ class SwiperDiy extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: IconTextButton.icon(
-                      icon: Icon(Icons.add_alarm,size: 30,),
-                      label: Text("首页"),
+                      icon: Image.asset("assets/images/理财课.png",width: 30,),
+                      label: Text("理财课"),
                       color: Colors.transparent,
                       textColor: Colors.white,
                       elevation: 0.0,
@@ -159,8 +173,8 @@ class SwiperDiy extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: IconTextButton.icon(
-                      icon: Icon(Icons.add_alarm,size: 30,),
-                      label: Text("首页"),
+                      icon: Image.asset("assets/images/训练营.png",width: 30,),
+                      label: Text("训练营"),
                       color: Colors.transparent,
                       textColor: Colors.white,
                       elevation: 0.0,
@@ -173,8 +187,8 @@ class SwiperDiy extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: IconTextButton.icon(
-                      icon: Icon(Icons.add_alarm,size: 30,),
-                      label: Text("首页"),
+                      icon: Image.asset("assets/images/周边.png",width: 30,),
+                      label: Text("周边"),
                       color: Colors.transparent,
                       textColor: Colors.white,
                       elevation: 0.0,
@@ -187,9 +201,7 @@ class SwiperDiy extends StatelessWidget {
                 ],
               ),
             )
-          ),
-        ],
-      ),
-    );
+          );
   }
 }
+
